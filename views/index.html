@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Students</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid" style="display: flex; justify-content: center;">
+                <h1>List of Students</h1>
+            </div>
+        </nav>
+    </header>
+    <main>      
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-secondary">        
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">CI</th>
+                <!--<th scope="col">Email</th>-->
+                <!--<th scope="col">IP</th>-->
+                <th scope="col">Pay?</th>
+            </tr>
+        </thead>
+        <tbody id="students-table">   
+            <% students.forEach(student => { %>
+                <tr class="table-dark" title="<%= student.firstName %>,<%= student.lastName %>,<%= student.ci %>,<%= student.phone %>,<%= student.email %>,<%= student.student %>,<%= student.season %>,<%= student.pay %>, <%= student.ip %>">
+                    <td class="name"><%= student.firstName %></td>
+                    <td class="name"><%= student.lastName %></td>
+                    <td><%= student.ci %></td>
+                    <td class="pay"><div class="<%= student.pay ? 'pago' : 'no-pago' %>"></div></td>                    
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </main>
+    <div class="Modal" >
+        <div class="alert alert-dismissible alert-light" style="display: none; z-index: 2;">
+            <button title="Close" type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Email</strong><p id="email"></p>
+            <strong>IP</strong><p id="ip"></p>
+            <div class="containerButtons">
+                <button type="button" class="btn btn-primary" id="edit">Edit</button>
+                <button type="button" class="btn btn-danger" id="delete">Delete</button>
+            </div>
+        </div>
+        <div class="alert alert-dismissible alert-warning" style="display: none; z-index: 2;">
+            <button title="Warning" type="button" class="btn-close btn-warning-close" data-bs-dismiss="alert"></button>
+            <strong>Are you sure to remove <i id="studentName"></i>?</strong>
+            <div class="containerButtons">
+                <button type="button" class="btn btn-secondary" id="confirm">Confirm</button>
+                <button type="button" class="btn btn-secondary" id="cancel">Cancel</button>
+            </div>
+            
+        </div>
+        <div class="modal" style="display: none; z-index: 2;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Datas</h5>
+                    <button type="button" class="btn-close btn-close-form1" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/" method="post" class="form-group" name="form">
+                        <label class="form-label mt-4">Fields</label>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" class="floatingInput" id="firstName" name="firstName" required>
+                            <label for="floatingInput">Fisrt name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" class="floatingInput" id="lastName" name="lastName" required>
+                            <label for="floatingInput">Last name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" class="floatingInput" id="ci" name="ci" required>
+                            <label for="floatingInput">CI</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control" class="floatingInput" id="phone" name="phone" required>
+                            <label for="floatingInput">Phone</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" class="floatingInput" id="email" name="email" required>
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <fieldset class="radios">
+                            <legend class="mt-4">Student</legend>
+                            <div class="form-check">
+                                <input type="hidden" value="" id="student" name="student">
+                                <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="Bachiller">
+                                <label class="form-check-label" for="optionsRadios1">
+                                Bachiller
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="Universitario">
+                                <label class="form-check-label" for="optionsRadios2">
+                                Universitario
+                                </label>
+                            </div>
+                            <label class="col-form-label mt-4" for="inputDefault">Season</label>
+                            <input type="text" class="form-control season" id="inputDefault">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input pay" type="checkbox" id="flexSwitchCheckChecked" value="" name="pay">
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Pay?</label>
+                            </div>
+                        </fieldset>                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-send">Save changes</button>
+                    <button type="button" class="btn btn-secondary btn-close-form2" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright &copy; 2023 - Anthony Carrillo</p>
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+</html>
