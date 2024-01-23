@@ -17,7 +17,7 @@ module.exports = {
             .then((result)=>{
                 fs.readFile(path.join(view ,'index.html'), 'utf-8', (err, html) => {
                     res.writeHead(200, { "Content-Type": 'text/html' });
-                    const renderedHTML = ejs.render(html, { students:result });
+                    const renderedHTML = ejs.render(html, { students:result, count:result.length });
                     res.end(renderedHTML);
                 });
             })
@@ -25,7 +25,7 @@ module.exports = {
                 console.error(error);
                 fs.readFile(path.join(view ,'index.html'), 'utf-8', (err, html) => {
                     res.writeHead(200, { "Content-Type": 'text/html' });                
-                    const renderedHTML = ejs.render(html, { students:{} });
+                    const renderedHTML = ejs.render(html, { students:{}, count:0 });
                     res.end(renderedHTML);
                 });
             });
