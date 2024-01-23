@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+nav {
+    display:flex;
+    flex-direction: column;
+}
+
 main {
     /* width: 100vw; */
     /* height: 100%; */
