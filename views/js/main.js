@@ -12,8 +12,15 @@ const btnConfirm = document.querySelector('#confirm');
 const btnCancel = document.querySelector('#cancel');
 const formGroup = document.querySelector('.modal');
 const btnSend = document.querySelector('.btn-send');
+const count = document.querySelector('#count');
+const students = document.querySelectorAll('tr');
+const payout = document.querySelectorAll('.pago');
+const nopayout = document.querySelectorAll('.no-pago');
+
 let studentsName;
 let datas = [];
+
+count.textContent = `Total de estudiantes: ${students.length} - Han pagado: ${pago.length} - Quedan debiendo: ${nopayout.length}`;
 
 studentsTable.addEventListener('click', (e) => {
     if(e.target && e.target.tagName === 'TD') {
