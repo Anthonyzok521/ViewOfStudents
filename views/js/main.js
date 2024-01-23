@@ -20,7 +20,7 @@ const nopayout = document.querySelectorAll('.no-pago');
 let studentsName;
 let datas = [];
 
-count.textContent = `Total de estudiantes: ${students.length} - Han pagado: ${pago.length} - Quedan debiendo: ${nopayout.length}`;
+count.textContent = `Total de estudiantes: ${students.length} - Han pagado: ${payout.length} - Quedan debiendo: ${nopayout.length}`;
 
 studentsTable.addEventListener('click', (e) => {
     if(e.target && e.target.tagName === 'TD') {
