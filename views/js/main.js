@@ -20,7 +20,7 @@ const nopayout = document.querySelectorAll('.no-pago');
 let studentsName;
 let datas = [];
 
-count.textContent = `Total de estudiantes: ${students.length - 1} - Han pagado: ${payout.length} - Quedan debiendo: ${nopayout.length}`;
+count.textContent = `Total de estudiantes: ${students.length - 1} - Han pagado: ${payout.length} - Quedan debiendo: ${nopayout.length} - Ganancia AIS: ${((students.length - 1) / 2) * 6}$ - Mi ganancia: ${(payout.length * 6) - (((students.length - 1) / 2) * 6)}$ - Ganancia total: ${(students.length - 1) * 6}$`;
 
 studentsTable.addEventListener('click', (e) => {
     if(e.target && e.target.tagName === 'TD') {
