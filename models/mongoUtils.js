@@ -104,7 +104,7 @@ module.exports = class MongoUtils {
             mongoClient.connect(this.getConnectionString(), { useUnifiedTopology: true, useNewUrlParser: true }).then(client => {
 
                 const db = client.db(this.getDataBaseString());
-                const collection = db.collection(this.getConnectionString());
+                const collection = db.collection(this. getCollectionString());
 
                 const find = collection.find(data);
                 const results = [];
